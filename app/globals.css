@@ -1,0 +1,154 @@
+:root {
+  color-scheme: dark;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.4;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  background: #071018;
+  color: #f4f1ea;
+}
+
+button, input { font: inherit; }
+a { color: inherit; }
+
+.page { position: relative; min-height: 100vh; overflow: hidden; }
+
+.eyebrow {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #f2c14e;
+  margin: 0 0 8px;
+}
+
+h1, h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+h1 { font-size: clamp(36px, 7vw, 64px); }
+
+.lede, .fineprint, .meta { color: rgba(244, 241, 234, 0.82); }
+
+.report { position: relative; z-index: 1; padding: 36px 28px 64px; max-width: 920px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.stats article {
+  background: rgba(10, 16, 24, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.stats span { display: block; font-size: 12px; opacity: 0.75; }
+.stats b { font-size: 26px; font-family: var(--font-display), Georgia, serif; }
+
+.forecast { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; }
+
+.tile {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  background: rgba(10, 16, 24, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+.tile p { margin: 4px 0 0; font-size: 13px; opacity: 0.82; }
+
+.error {
+  color: #ffb4b4;
+  background: rgba(120, 24, 24, 0.35);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.ghost {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.16);
+  border: 0;
+  color: inherit;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.fineprint { font-size: 12px; margin-top: 24px; }
+
+.sky, .lighthouse-sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lighthouse-page.beam-none { background: linear-gradient(180deg, #0b1c33 0%, #16324d 50%, #0a1622 100%); }
+.lighthouse-page.beam-minor { background: linear-gradient(180deg, #2a2416 0%, #4a3a18 50%, #12100a 100%); }
+.lighthouse-page.beam-major,
+.lighthouse-page.beam-critical { background: linear-gradient(180deg, #2a1212 0%, #3a1a1a 50%, #100808 100%); }
+
+.lighthouse-tower {
+  position: absolute;
+  right: 12vw;
+  bottom: 14vh;
+  width: 48px;
+  height: 28vh;
+  background: linear-gradient(90deg, #d9c9a8, #8a7a58);
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.lamp {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 28px;
+  height: 28px;
+  margin-left: -14px;
+  border-radius: 50%;
+  background: #ffe08a;
+  box-shadow: 0 0 40px 16px rgba(255, 214, 102, 0.55);
+}
+
+.beam {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  width: 55vw;
+  height: 70px;
+  background: linear-gradient(90deg, rgba(255, 224, 138, 0.45), transparent);
+  transform-origin: left center;
+  animation: sweep 8s ease-in-out infinite;
+}
+
+.beam-minor .beam { animation-duration: 3.2s; opacity: 0.7; }
+.beam-major .beam, .beam-critical .beam { animation-duration: 1.4s; opacity: 0.35; background: linear-gradient(90deg, rgba(255, 120, 80, 0.5), transparent); }
+
+.lighthouse-sea {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 16vh;
+  background: linear-gradient(180deg, transparent, rgba(6, 18, 28, 0.95));
+}
+
+@keyframes sweep {
+  0%, 100% { transform: rotate(-18deg); }
+  50% { transform: rotate(28deg); }
+}
+
+@media (max-width: 720px) {
+  .stats { grid-template-columns: 1fr 1fr; }
+}
