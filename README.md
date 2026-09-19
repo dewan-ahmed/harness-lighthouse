@@ -18,4 +18,6 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). That is the whole station.
+Open [http://127.0.0.1:3000](http://127.0.0.1:3000) in your local browser. That is the whole station.
+
+Do not use the LAN/`Network:` URL Next sometimes prints, and skip Cursor port-forward preview links — those often go through a proxy that shows “Accessible only on corporate network.”
